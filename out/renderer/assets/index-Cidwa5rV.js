@@ -7761,7 +7761,6 @@ function App() {
     }
     setSession(answerCurrentCard(session, cards, result));
     setShowAnswer(false);
-    setNotice(result === "understood" ? "Good. That card can retire as soon as it earns enough correct answers." : "That card is coming back soon for another pass.");
   }
   const complete = Boolean(session && !session.currentCardId);
   const totalLoadedCards = loadedParse?.cards.length ?? 0;
@@ -7862,8 +7861,7 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `card-stage ${showAnswer ? "revealed" : ""}`, children: currentCard ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card-face card-front", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "card-tag", children: "Question:" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: currentCard.term }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "?" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: currentCard.term })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card-face card-back", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "card-tag", children: "Answer" }),
@@ -7872,7 +7870,7 @@ function App() {
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty-state", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "card-tag", children: "Ready" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: cards.length > 0 ? "No card is currently due." : "Pick a CSV file, then start a session." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The scheduler keeps cards cycling until they are learned, while spacing successful cards farther apart and bringing misses back quickly." })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: cards.length > 0 ? "Congrats! You have completed all the cards in this session. If you did not complete all the cards and this message appeared, please panic." : "The scheduler keeps cards cycling until they are learned, while spacing successful cards farther apart and bringing misses back quickly" })
         ] }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "study-actions", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "ghost-button", disabled: !currentCard || showAnswer, onClick: () => setShowAnswer(true), children: "Reveal answer" }),

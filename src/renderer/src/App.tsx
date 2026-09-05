@@ -232,7 +232,7 @@ export default function App() {
 
     setSession(answerCurrentCard(session, cards, result))
     setShowAnswer(false)
-    setNotice(result === 'understood' ? 'Good. That card can retire as soon as it earns enough correct answers.' : 'That card is coming back soon for another pass.')
+    // setNotice(result === 'understood' ? 'Good. That card can retire as soon as it earns enough correct answers.' : 'That card is coming back soon for another pass.')
   }
 
   const complete = Boolean(session && !session.currentCardId)
@@ -372,7 +372,6 @@ export default function App() {
                 <div className="card-face card-front">
                   <span className="card-tag">Question:</span>
                   <h3>{currentCard.term}</h3>
-                  <p>?</p>
                 </div>
                 <div className="card-face card-back">
                   <span className="card-tag">Answer</span>
@@ -384,7 +383,10 @@ export default function App() {
                 <span className="card-tag">Ready</span>
                 <h3>{cards.length > 0 ? 'No card is currently due.' : 'Pick a CSV file, then start a session.'}</h3>
                 <p>
-                  The scheduler keeps cards cycling until they are learned, while spacing successful cards farther apart and bringing misses back quickly.
+                  {cards.length > 0 ?
+                  "Congrats! You have completed all the cards in this session. If you did not complete all the cards and this message appeared, please panic."
+                  : "The scheduler keeps cards cycling until they are learned, while spacing successful cards farther apart and bringing misses back quickly"
+                  }
                 </p>
               </div>
             )}
