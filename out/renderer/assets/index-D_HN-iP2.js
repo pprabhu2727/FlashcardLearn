@@ -7761,7 +7761,6 @@ function App() {
     }
     setSession(answerCurrentCard(session, cards, result));
     setShowAnswer(false);
-    setNotice(result === "understood" ? "Good. That card can retire as soon as it earns enough correct answers." : "That card is coming back soon for another pass.");
   }
   const complete = Boolean(session && !session.currentCardId);
   const totalLoadedCards = loadedParse?.cards.length ?? 0;
@@ -7863,8 +7862,7 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `card-stage ${showAnswer ? "revealed" : ""}`, children: currentCard ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card-face card-front", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "card-tag", children: "Question:" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: currentCard.term }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "?" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: currentCard.term })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card-face card-back", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "card-tag", children: "Answer" }),

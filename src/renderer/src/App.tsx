@@ -225,7 +225,7 @@ export default function App() {
 
     setSession(answerCurrentCard(session, cards, result))
     setShowAnswer(false)
-    setNotice(result === 'understood' ? 'Good. That card can retire as soon as it earns enough correct answers.' : 'That card is coming back soon for another pass.')
+    // setNotice(result === 'understood' ? 'Good. That card can retire as soon as it earns enough correct answers.' : 'That card is coming back soon for another pass.')
   }
 
   const complete = Boolean(session && !session.currentCardId)
@@ -365,7 +365,6 @@ export default function App() {
                 <div className="card-face card-front">
                   <span className="card-tag">Question:</span>
                   <h3>{currentCard.term}</h3>
-                  <p>?</p>
                 </div>
                 <div className="card-face card-back">
                   <span className="card-tag">Answer</span>
