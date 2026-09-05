@@ -155,6 +155,13 @@ export default function App() {
     return getCurrentCard(session, cards)
   }, [cards, session])
 
+  //Stats definition
+  /*
+    active = cards still in the learning rotation (Due right now + Scheduled to return later + Currently displayed)
+    dueNow = active cards ready now
+    learned = retired cards
+    introduced = active introduced cards
+  */
   const stats = useMemo(() => {
     if (!session) {
       return { introduced: 0, learned: 0, dueNow: 0, active: 0 }
@@ -225,7 +232,7 @@ export default function App() {
 
     setSession(answerCurrentCard(session, cards, result))
     setShowAnswer(false)
-    // setNotice(result === 'understood' ? 'Good. That card can retire as soon as it earns enough correct answers.' : 'That card is coming back soon for another pass.')
+    setNotice(result === 'understood' ? 'Good. That card can retire as soon as it earns enough correct answers.' : 'That card is coming back soon for another pass.')
   }
 
   const complete = Boolean(session && !session.currentCardId)
@@ -354,7 +361,7 @@ export default function App() {
             </div>
             <div className="stats-grid">
               {statLine('Cards', cards.length)}
-              {statLine('In rotation', stats.active)}
+              {/* {statLine('In rotation', stats.active)} */}
               {statLine('Learned', stats.learned)}
             </div>
           </div>
@@ -365,6 +372,7 @@ export default function App() {
                 <div className="card-face card-front">
                   <span className="card-tag">Question:</span>
                   <h3>{currentCard.term}</h3>
+                  <p>?</p>
                 </div>
                 <div className="card-face card-back">
                   <span className="card-tag">Answer</span>
